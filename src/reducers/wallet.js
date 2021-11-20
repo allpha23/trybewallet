@@ -1,7 +1,7 @@
 const INITIAL_STATE = {
   wallet: {
-    currencies: [],
-    expenses: [],
+    currencies: ['BRL'],
+    expenses: ['0'],
   },
 };
 
@@ -10,7 +10,8 @@ const wallet = (state = INITIAL_STATE, action) => {
   case 'SET_WALLET_INFORMATIONS':
     return ({
       ...state,
-      wallet: action.payload,
+      currencies: action.payload.currencies,
+      expenses: action.payload.expenses,
     });
   default:
     return state;
