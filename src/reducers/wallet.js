@@ -1,18 +1,15 @@
 const INITIAL_STATE = {
-  wallet: {
-    currencies: ['BRL'],
-    expenses: ['0'],
-  },
+  currencies: [],
+  expenses: [],
 };
 
 const wallet = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-  case 'SET_WALLET_INFORMATIONS':
-    return ({
+  case 'SET_WALLET':
+    return {
       ...state,
-      currencies: action.payload.currencies,
-      expenses: action.payload.expenses,
-    });
+      expenses: state.expenses.concat(action.payload),
+    };
   default:
     return state;
   }

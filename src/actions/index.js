@@ -3,7 +3,21 @@ export const setUserInformations = (payload) => ({
   payload,
 });
 
-export const setWalletInformations = (payload) => ({
-  type: 'SET_WALLET_INFORMATIONS',
+export const setWallet = (payload) => ({
+  type: 'SET_WALLET',
+  payload,
+});
+
+export const requestCurrency = () => ({
+  type: 'REQUEST_CURRENCY',
+});
+
+export const requestCurrencySuccess = (payload) => ({
+  type: 'REQUEST_CURRENCY_SUCCESS',
+  payload,
+});
+
+export const requestCurrencyError = (payload) => ({
+  type: 'REQUEST_CURRENCY_ERROR',
   payload,
 });
