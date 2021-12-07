@@ -1,8 +1,7 @@
-/* eslint-disable jsx-a11y/control-has-associated-label */
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { setWallet } from '../actions/index';
+import { setWallet, requestCurrencySuccess } from '../actions/index';
 import getExchangeRates from '../services/currencyApi';
 
 const INITIAL_STATE = {
@@ -23,10 +22,11 @@ class ExpensesForm extends React.Component {
 
     this.onSubmit = this.onSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.getCurrency = this.getCurrency.bind(this);
   }
 
   componentDidMount() {
-    getExchangeRates();
+    this.getCurrency();
   }
 
   async onSubmit() {
@@ -38,6 +38,13 @@ class ExpensesForm extends React.Component {
     this.setState({ ...INITIAL_STATE, id: id + 1 });
   }
 
+  async getCurrency() {
+    const { dispatchCurrency } = this.props;
+    const api = await getExchangeRates();
+    this.setState({ exchangeRates: api });
+    dispatchCurrency(this.state);
+  }
+
   handleChange({ target }) {
     const { name, value } = target;
 
@@ -45,23 +52,25 @@ class ExpensesForm extends React.Component {
   }
 
   selectCurrencies() {
-    const currencies = ['USD', 'CAD', 'EUR', 'GBP', 'ARS', 'BTC', 'LTC',
-      'JPY', 'CHF', 'AUD', 'CNY', 'ILS', 'ETH', 'XRP'];
+    const { currencies } = this.props;
     const { currency } = this.state;
 
     return (
-      // eslint-disable-next-line react/self-closing-comp
-      <select
-        data-testid="currency-input"
-        type="text"
-        name="currency"
-        value={ currency }
-        onChange={ this.handleChange }
-      >
-        { currencies.map((value) => (
-          <option key={ value }>{ value }</option>
-        )) }
-      </select>
+      <label htmlFor="input-currency">
+        Moeda:
+        <select
+          data-testid="currency-input"
+          id="input-currency"
+          type="text"
+          name="currency"
+          value={ currency }
+          onChange={ this.handleChange }
+        >
+          { currencies.filter((currencyEl) => currencyEl !== 'USDT').map((value) => (
+            <option key={ value }>{ value }</option>
+          )) }
+        </select>
+      </label>
     );
   }
 
@@ -110,10 +119,17 @@ class ExpensesForm extends React.Component {
 
 const mapDispatchToProps = (dispatch) => ({
   dispatch: (state) => dispatch(setWallet(state)),
+  dispatchCurrency: (state) => dispatch(requestCurrencySuccess(state)),
+});
+
+const mapStateToProps = (state) => ({
+  currencies: state.wallet.currencies,
 });
 
 ExpensesForm.propTypes = {
+  currencies: PropTypes.arrayOf(PropTypes.string).isRequired,
   dispatch: PropTypes.func.isRequired,
+  dispatchCurrency: PropTypes.func.isRequired,
 };
 
-export default connect(null, mapDispatchToProps)(ExpensesForm);
+export default connect(mapStateToProps, mapDispatchToProps)(ExpensesForm);

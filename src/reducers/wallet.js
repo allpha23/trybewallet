@@ -10,6 +10,11 @@ const wallet = (state = INITIAL_STATE, action) => {
       ...state,
       expenses: state.expenses.concat(action.payload),
     };
+  case 'REQUEST_CURRENCY_SUCCESS':
+    return {
+      ...state,
+      currencies: Object.keys(action.payload.exchangeRates),
+    };
   default:
     return state;
   }

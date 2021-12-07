@@ -6,6 +6,7 @@ class Header extends React.Component {
   totalExpenses() {
     const { wallet } = this.props;
     const { expenses } = wallet;
+
     if (expenses.length === 0) return 0;
     const total = expenses.reduce((previous, current) => {
       const { currency } = current;
@@ -17,9 +18,9 @@ class Header extends React.Component {
   }
 
   render() {
-    const { user, wallet } = this.props;
+    const { user } = this.props;
     const { email } = user;
-    console.log(wallet);
+
     return (
       <div>
         <div data-testid="email-field">
