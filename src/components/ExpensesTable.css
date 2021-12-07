@@ -5,7 +5,7 @@ table {
   width: 100%;
 }
 
-table td, table th {
+table td , table th {
   border: 1px solid #ddd;
   padding: 8px;
 }
@@ -15,9 +15,9 @@ table tr:hover {
 }
 
 table th {
+  background-color: #424242;
+  color: white;
   padding-bottom: 12px;
   padding-top: 12px;
-  background-color: #424242;
   text-align: center;
-  color: white;
 }

@@ -1,8 +1,8 @@
 .form-container {
-  display: flex;
   align-items: center;
-  justify-content: space-around;
   background-color: #1c1c1c;
-  height: 50px;
   color: white;
+  display: flex;
+  height: 50px;
+  justify-content: space-around;
 }
