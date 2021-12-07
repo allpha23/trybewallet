@@ -8,6 +8,11 @@ export const setWallet = (payload) => ({
   payload,
 });
 
+export const removeExpense = (payload) => ({
+  type: 'REMOVE_EXPENSE',
+  payload,
+});
+
 export const requestCurrency = () => ({
   type: 'REQUEST_CURRENCY',
 });
