@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { setWallet, requestCurrencySuccess } from '../actions/index';
 import getExchangeRates from '../services/currencyApi';
+import './ExpensesForm.css';
 
 const INITIAL_STATE = {
   id: 0,
@@ -78,7 +79,7 @@ class ExpensesForm extends React.Component {
     const { value, description } = this.state;
 
     return (
-      <form>
+      <form className="form-container">
         <input
           data-testid="value-input"
           type="number"

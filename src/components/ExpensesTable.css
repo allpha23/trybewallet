@@ -1,0 +1,10 @@
+.table-container {
+  height: 50px;
+  background-color: #2E2E2E;
+  color: white;
+}
+
+th {
+  padding: 15px 20px 15px 20px;
+}
+
