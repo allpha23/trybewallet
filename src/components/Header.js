@@ -38,8 +38,12 @@ class Header extends React.Component {
 }
 
 Header.propTypes = {
-  user: PropTypes.objectOf(PropTypes.object).isRequired,
-  wallet: PropTypes.objectOf(PropTypes.array).isRequired,
+  user: PropTypes.shape({
+    email: PropTypes.string,
+  }).isRequired,
+  wallet: PropTypes.shape({
+    expenses: PropTypes.arrayOf(PropTypes.object),
+  }).isRequired,
 };
 
 const mapStateToProps = (state) => ({

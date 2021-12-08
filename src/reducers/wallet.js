@@ -1,6 +1,8 @@
 const INITIAL_STATE = {
   currencies: [],
   expenses: [],
+  editIsOn: false,
+  index: '',
 };
 
 const wallet = (state = INITIAL_STATE, action) => {
@@ -8,7 +10,7 @@ const wallet = (state = INITIAL_STATE, action) => {
   case 'SET_WALLET':
     return {
       ...state,
-      expenses: [...state.expenses, { id: state.expenses.length, ...action.payload }],
+      expenses: [...state.expenses, action.payload],
     };
   case 'REQUEST_CURRENCY_SUCCESS':
     return {
@@ -28,6 +30,20 @@ const wallet = (state = INITIAL_STATE, action) => {
         ...state.expenses.slice(0, action.payload),
         ...state.expenses.slice(action.payload + 1),
       ],
+    };
+  case 'SHOW_EDIT':
+    return {
+      ...state,
+      editIsOn: action.payload.editIsOn,
+      index: action.payload.index,
+    };
+  case 'SET_EDITED':
+    state.expenses[state.index] = {
+      ...state.expenses[state.index],
+      ...action.payload,
+    };
+    return {
+      ...state,
     };
   default:
     return state;

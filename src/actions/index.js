@@ -13,6 +13,16 @@ export const removeExpense = (payload) => ({
   payload,
 });
 
+export const showEdit = (payload) => ({
+  type: 'SHOW_EDIT',
+  payload,
+});
+
+export const setEdited = (payload) => ({
+  type: 'SET_EDITED',
+  payload,
+});
+
 export const requestCurrency = () => ({
   type: 'REQUEST_CURRENCY',
 });

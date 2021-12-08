@@ -1,25 +1,40 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { removeExpense } from '../actions/index';
+import { removeExpense, showEdit } from '../actions/index';
 import './ExpensesTable.css';
 
 class ExpensesTable extends Component {
   constructor() {
     super();
-    this.handleClick = this.handleClick.bind(this);
+    this.handleClickDelete = this.handleClickDelete.bind(this);
+    this.handleClickEdit = this.handleClickEdit.bind(this);
   }
 
   convertNumber(value) {
     return Number(value).toFixed(2);
   }
 
-  handleClick({ target }) {
+  handleClickDelete({ target }) {
     const { name } = target;
     const { dispatch, wallet } = this.props;
     const { expenses } = wallet;
     const index = expenses.findIndex((element) => element.description === name);
+
     dispatch(index);
+  }
+
+  handleClickEdit({ target }) {
+    const { name } = target;
+    const { togleEdit, wallet } = this.props;
+    const { expenses } = wallet;
+    const index = expenses.findIndex((element) => element.description === name);
+    const payload = {
+      editIsOn: true,
+      index,
+    };
+
+    togleEdit(payload);
   }
 
   renderTableItem() {
@@ -43,8 +58,17 @@ class ExpensesTable extends Component {
             <button
               name={ description }
               type="button"
+              data-testid="edit-btn"
+              onClick={ this.handleClickEdit }
+            >
+              Editar
+            </button>
+
+            <button
+              name={ description }
+              type="button"
               data-testid="delete-btn"
-              onClick={ this.handleClick }
+              onClick={ this.handleClickDelete }
             >
               Excluir
             </button>
@@ -81,12 +105,16 @@ class ExpensesTable extends Component {
 }
 
 ExpensesTable.propTypes = {
-  wallet: PropTypes.objectOf(PropTypes.array).isRequired,
   dispatch: PropTypes.func.isRequired,
+  togleEdit: PropTypes.func.isRequired,
+  wallet: PropTypes.shape({
+    expenses: PropTypes.arrayOf(PropTypes.object),
+  }).isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => ({
   dispatch: (state) => dispatch(removeExpense(state)),
+  togleEdit: (state) => dispatch(showEdit(state)),
 });
 
 const mapStateToProps = (state) => ({
