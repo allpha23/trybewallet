@@ -6,3 +6,12 @@
   height: 50px;
   justify-content: space-around;
 }
+
+.formEdit-container {
+  align-items: center;
+  background-color: #21610b;
+  color: white;
+  display: flex;
+  height: 50px;
+  justify-content: space-around;
+}

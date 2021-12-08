@@ -90,7 +90,7 @@ class ExpensesEdit extends React.Component {
     const { value, description } = this.state;
 
     return (
-      <form className="form-container">
+      <form className="formEdit-container">
         <input
           data-testid="value-input"
           type="number"
