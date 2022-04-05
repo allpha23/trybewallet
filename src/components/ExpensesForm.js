@@ -58,7 +58,8 @@ class ExpensesForm extends React.Component {
 
     return (
       <label htmlFor="input-currency">
-        Moeda:
+        Moeda
+        {' '}
         <select
           data-testid="currency-input"
           id="input-currency"
@@ -81,17 +82,19 @@ class ExpensesForm extends React.Component {
     return (
       <form className="form-container">
         <input
-          data-testid="value-input"
-          type="number"
-          name="value"
-          value={ value }
+          data-testid="description-input"
+          type="text"
+          placeholder="descrição"
+          name="description"
+          value={ description }
           onChange={ this.handleChange }
         />
         <input
-          data-testid="description-input"
-          type="text"
-          name="description"
-          value={ description }
+          data-testid="value-input"
+          type="number"
+          placeholder="valor"
+          name="value"
+          value={ value }
           onChange={ this.handleChange }
         />
         {this.selectCurrencies()}
