@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { setUserInformations } from '../actions/index';
+import Logo from '../images/Trybe_logo.png';
+import './Login.css';
 
 class Login extends React.Component {
   constructor() {
@@ -43,33 +45,45 @@ class Login extends React.Component {
   render() {
     const { enable, email } = this.state;
     return (
-      <form>
-        <input
-          data-testid="email-input"
-          label="email: "
-          type="text"
-          name="email"
-          value={ email }
-          onChange={ this.handleChange }
-        />
-        <input
-          data-testid="password-input"
-          label="senha: "
-          type="password"
-          name="password"
-          onChange={ this.handleChange }
-        />
-        <Link to="/carteira">
-          <button
-            type="button"
-            label="Enviar"
-            disabled={ !enable }
-            onClick={ this.onSubmit }
-          >
-            Entrar
-          </button>
-        </Link>
-      </form>
+      <div className="login">
+        <div className="login-container">
+          <img className="login-title" src={ Logo } alt="logo trybe" />
+          {/* <h1 className="login-title">Login</h1> */}
+          <form className="login-form">
+            <input
+              className="login-input"
+              data-testid="email-input"
+              placeholder="e-mail"
+              type="text"
+              name="email"
+              value={ email }
+              onChange={ this.handleChange }
+            />
+            <span className="login-border" />
+            <input
+              className="login-input"
+              data-testid="password-input"
+              placeholder="senha"
+              type="password"
+              name="password"
+              onChange={ this.handleChange }
+            />
+            <span className="login-border" />
+            <Link className="login-submit-link" to="/carteira">
+              <button
+                className="login-submit"
+                type="button"
+                label="Enviar"
+                disabled={ !enable }
+                onClick={ this.onSubmit }
+              >
+                Entrar
+              </button>
+            </Link>
+            <a className="login-reset" href="n">Esqueci a senha</a>
+          </form>
+        </div>
+      </div>
     );
   }
 }
