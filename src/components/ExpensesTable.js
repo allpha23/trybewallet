@@ -44,18 +44,20 @@ class ExpensesTable extends Component {
     return expenses.map((element) => {
       const { description, tag, method, value, exchangeRates, currency } = element;
       const { name, ask } = exchangeRates[currency];
+
       return (
         <tr key={ description } className="list">
           <td>{ description }</td>
           <td>{ tag }</td>
           <td>{ method }</td>
-          <td>{ value }</td>
-          <td>{ name }</td>
+          <td>{ Number(value).toFixed(2) }</td>
+          <td className="table">{ name }</td>
           <td>{ this.convertNumber(ask) }</td>
           <td>{ this.convertNumber(value * ask) }</td>
           <td>Real</td>
-          <td>
+          <td className="table-button-container">
             <button
+              className="table-button-edit"
               name={ description }
               type="button"
               data-testid="edit-btn"
@@ -63,8 +65,8 @@ class ExpensesTable extends Component {
             >
               Editar
             </button>
-
             <button
+              className="table-button-delet"
               name={ description }
               type="button"
               data-testid="delete-btn"
