@@ -3,7 +3,7 @@ name: deploy
 on:
   push:
     branches:
-      - pedro-soares-trybewallet
+      - main
 
 jobs:
   deploy:
