@@ -37,9 +37,8 @@ class Header extends React.Component {
           <div className="header-despesa" data-testid="total-field">
             Despesa Total:
             {' '}
-            { this.totalExpenses() }
+            {this.totalExpenses()}
           </div>
-          <div className="header-cambio" data-testid="header-currency-field">BRL</div>
         </div>
       </div>
     );
