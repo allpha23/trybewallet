@@ -47,9 +47,3 @@ yarn install
 # executar o projeto
 yarn start
 ```
-
-# Autor
-
-Pedro Walpablôndy Soares
-
-https://www.linkedin.com/in/pedro-walphablondy
