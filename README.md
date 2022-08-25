@@ -21,8 +21,11 @@ Para logar:
 
 # Tecnologias utilizadas
 
-- HTML / CSS / JS
+- JavaScript
 - ReactJS
+- Redux
+- HTML
+- CSS
 
 ## Implantação em produção
 - Front end web: Heroku
