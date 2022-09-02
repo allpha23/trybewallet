@@ -1,17 +1,86 @@
 .form-container {
-  align-items: center;
-  background-color: #1c1c1c;
-  color: white;
+  margin-top: 20px;
+  width: 100%;
   display: flex;
-  height: 50px;
-  justify-content: space-around;
+  justify-content: center;
 }
 
-.formEdit-container {
-  align-items: center;
-  background-color: #03BB85;
-  color: white;
+.expenses-form {
+  height: 70px;
+  width: 90%;
   display: flex;
-  height: 50px;
   justify-content: space-around;
+  align-items: center;
+  background-color: #27242C;
+  border-radius: 10px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+input {
+  margin-top: 5px;
+  box-sizing: border-box;
+  border: unset;
+  outline: none;
+}
+
+.value-input {
+  width: 70px;
+}
+
+select {
+  margin-top: 5px;
+  box-sizing: border-box;
+  border: unset;
+  outline: none;
+}
+
+.form-button {
+  height: 40px;
+  width: 100px;
+  background: linear-gradient(50deg, #34C0EC, #5D3CFC, #34C0EC);
+  background-size: 200%;
+  border: unset;
+  border-radius: 15px;
+  color: #FFFFFF;
+  cursor: pointer;
+  transition: .3s ease-in-out;
+  font-weight: bold;
+}
+
+.edit-button {
+  height: 40px;
+  width: 100px;
+  background: linear-gradient(50deg, #20E3A7, #B6ED36, #20E3A7);
+  background-size: 200%;
+  border: unset;
+  border-radius: 15px;
+  color: #181719;
+  cursor: pointer;
+  transition: .3s ease-in-out;
+  font-weight: bold;
+}
+
+.form-button:hover {
+  background-position-x: right;
+  color: #77E965;
+}
+
+.edit-button:hover {
+  background-position-x: right;
+  color: #5D3CFC;
+}
+
+.edit {
+  height: 70px;
+  width: 90%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #0F5657;
+  border-radius: 10px;
 }
