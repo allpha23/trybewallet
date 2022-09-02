@@ -2,7 +2,7 @@
 
 # Sobre o projeto
 
-https://trybewallet-frontend.herokuapp.com/
+https://allpha23.github.io/trybewallet/
 
 Trybe Wallet é uma carteira de controle de gastos com conversor de moedas, o usuário poderá:
   - Adicionar, remover e editar um gasto;
