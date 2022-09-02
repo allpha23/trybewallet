@@ -2,7 +2,7 @@
   "homepage": "https://allpha23.github.io/trybewallet",
   "name": "sd-0x-project-trybewallet",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "engines": {
     "node": "16.13.0",
     "npm": "8.1.0"
