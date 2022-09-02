@@ -15,8 +15,8 @@ class ExpensesTable extends Component {
     return Number(value).toFixed(2);
   }
 
-  handleClickDelete({ target }) {
-    const { name } = target;
+  handleClickDelete({ currentTarget }) {
+    const { name } = currentTarget;
     const { dispatch, wallet } = this.props;
     const { expenses } = wallet;
     const index = expenses.findIndex((element) => element.description === name);
@@ -24,8 +24,8 @@ class ExpensesTable extends Component {
     dispatch(index);
   }
 
-  handleClickEdit({ target }) {
-    const { name } = target;
+  handleClickEdit({ currentTarget }) {
+    const { name } = currentTarget;
     const { togleEdit, wallet } = this.props;
     const { expenses } = wallet;
     const index = expenses.findIndex((element) => element.description === name);
@@ -51,7 +51,7 @@ class ExpensesTable extends Component {
           <td>{ tag }</td>
           <td>{ method }</td>
           <td>{ Number(value).toFixed(2) }</td>
-          <td className="table">{ name }</td>
+          <td className="td-tag">{ name.split("/", 1) }</td>
           <td>{ this.convertNumber(ask) }</td>
           <td>{ this.convertNumber(value * ask) }</td>
           <td>Real</td>
@@ -63,7 +63,7 @@ class ExpensesTable extends Component {
               data-testid="edit-btn"
               onClick={ this.handleClickEdit }
             >
-              Editar
+              <i className="fa-solid fa-pen-to-square"></i>
             </button>
             <button
               className="table-button-delet"
@@ -72,7 +72,7 @@ class ExpensesTable extends Component {
               data-testid="delete-btn"
               onClick={ this.handleClickDelete }
             >
-              Excluir
+              <i className="fa-solid fa-trash-can"></i>
             </button>
           </td>
         </tr>
@@ -82,19 +82,19 @@ class ExpensesTable extends Component {
 
   render() {
     return (
-      <div>
+      <div className="table-container">
         <table>
           <thead>
             <tr>
               <th>Descrição</th>
-              <th>Tag</th>
-              <th>Método de pagamento</th>
+              <th className="th-width">Tag</th>
+              <th className="th-width">Método de pagamento</th>
               <th>Valor</th>
               <th>Moeda</th>
-              <th>Câmbio utilizado</th>
-              <th>Valor convertido</th>
-              <th>Moeda de conversão</th>
-              <th>Editar/Excluir</th>
+              <th className="th-width">Câmbio utilizado</th>
+              <th className="th-width">Valor convertido</th>
+              <th className="th-width">Moeda de conversão</th>
+              <th className="th-button">Editar/Excluir</th>
             </tr>
           </thead>
           <tbody>
