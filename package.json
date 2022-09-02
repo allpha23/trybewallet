@@ -1,4 +1,5 @@
 {
+  "homepage": "http://allpha23.github.io/trybewallet",
   "name": "sd-0x-project-trybewallet",
   "version": "0.1.0",
   "private": true,
@@ -24,6 +25,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
@@ -55,6 +58,7 @@
     "eslint-plugin-react-hooks": "4.2.0",
     "eslint-plugin-react-redux": "3.3.0",
     "eslint-plugin-sonarjs": "0.5.0",
+    "gh-pages": "^4.0.0",
     "jest-localstorage-mock": "2.4.3",
     "stylelint": "13.8.0",
     "stylelint-config-standard": "20.0.0"
