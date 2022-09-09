@@ -17,6 +17,28 @@ body {
   align-items: center;
 }
 
+.login .image_container {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login .image_container img {
+  height: 400px;
+  width: 400px;
+}
+
+.right_container {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFFFFF;
+}
+
 .login-container {
   min-height: 400px;
   width: 300px;
@@ -49,6 +71,7 @@ body {
   padding-left: 8px;
   border: unset;
   outline: none;
+  font-size: 1rem;
 }
 
 .login-border {
