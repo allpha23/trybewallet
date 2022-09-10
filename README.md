@@ -24,7 +24,6 @@ Para logar:
 - JavaScript
 - ReactJS
 - Redux
-- HTML
 - CSS
 
 
