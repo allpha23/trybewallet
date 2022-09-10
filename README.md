@@ -1,8 +1,8 @@
-# Trybe Wallet 
+# Trybe Wallet
+https://allpha23.github.io/trybewallet/
 
 # Sobre o projeto
 
-https://allpha23.github.io/trybewallet/
 
 Trybe Wallet é uma carteira de controle de gastos com conversor de moedas, o usuário poderá:
   - Adicionar, remover e editar um gasto;
@@ -27,8 +27,6 @@ Para logar:
 - HTML
 - CSS
 
-## Implantação em produção
-- Front end web: Heroku
 
 # Como executar o projeto
 
@@ -42,8 +40,8 @@ git clone git@github.com:allpha23/trybewallet.git
 cd trybewallet
 
 # instalar dependências
-yarn install
+npm install
 
 # executar o projeto
-yarn start
+npm start
 ```
